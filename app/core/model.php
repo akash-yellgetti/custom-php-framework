@@ -13,7 +13,7 @@ class Model
 	public $conn;
 	public $server;
 	
-	public function __construct($servername='mysql',$username='root',$password='passw0rd1',$db='company')
+	public function __construct($servername='mysql',$username='root',$password='passw0rd1',$db='itslets')
 	{
 		$this->servername = $servername;
 		$this->username = $username;
