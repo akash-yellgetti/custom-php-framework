@@ -13,7 +13,7 @@ class Model
 	public $conn;
 	public $server;
 	
-	public function __construct($servername='localhost',$username='root',$password='',$db='company')
+	public function __construct($servername='mysql',$username='root',$password='passw0rd1',$db='company')
 	{
 		$this->servername = $servername;
 		$this->username = $username;
@@ -53,9 +53,11 @@ class Model
 	public function select($sql)
 	{
 		try{
+		
 		$conn = $this->connect();
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare($sql);
+
 	    $stmt->execute();
 	    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
 	    $data['result']  = $stmt->fetchAll();

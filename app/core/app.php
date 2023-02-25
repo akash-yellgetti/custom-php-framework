@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',1);
+// ini_set('display_errors',1);
 include '../vendor/autoload.php';
 /**
 * 
@@ -13,6 +13,7 @@ class App
 	function __construct()
 	{
 		$url = $this->parseUrl();
+		// die(print_r($url,true));
 		if(!empty($url) && file_exists('../app/controllers/'.$url[0].'.php'))
 		{
 			$this->controller = $url[0];
@@ -32,14 +33,16 @@ class App
 		}
 
 		$this->params = $url ? array_values($url) : [];
-		//print_r($this->params);
+		// print_r($this->params);
 		call_user_func_array([$this->controller,$this->method], $this->params);
 	}
 
 	public function parseUrl()
 	{
-		if(isset($_GET['url'])){
-			return $url = explode('/',filter_var(rtrim($_GET['url'],'/'),FILTER_SANITIZE_URL));
+		// die("<pre>".print_r($_SERVER['REQUEST_URI'],true)."</pre>");
+		if(isset($_SERVER['REQUEST_URI'])){
+
+			return $url = explode('/',filter_var(ltrim(rtrim($_SERVER['REQUEST_URI'],'/'),'/'),FILTER_SANITIZE_URL));
 		}
 	}
 }

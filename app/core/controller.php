@@ -16,7 +16,7 @@ class Controller
 
 	public $conn;
 
-	public function __construct($servername='localhost',$username='root',$password='',$db='company')
+	public function __construct($servername='localhost',$username='root',$password='passw0rd1',$db='company')
 	{
 		$this->servername = $servername;
 		$this->username = $username;

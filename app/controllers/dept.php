@@ -10,7 +10,10 @@ class Dept extends Controller
 	{
 		$dept = $this->model('deptModel');
 		$query = "select * from depts";
+		// die("<pre>".print_r($query,true)."</pre>");
 		$data = $dept->select($query);
+
+		$data['result'] = [];
 		$this->view('dept/list', $data);
 	}
 
@@ -18,6 +21,7 @@ class Dept extends Controller
 	{
 		$dept = $this->model('deptModel');
 		$query = "select * from depts";
+		// die("<pre>".print_r($query,true)."</pre>");
 		$data = $dept->select($query);
 		$this->view('dept/list', $data);
 	}
