@@ -1,0 +1,6 @@
+{
+    "name": "akash/custom-framework",
+    "require": {
+        "symfony/var-dumper": "^3.1"
+    }
+}
